@@ -1,0 +1,17 @@
+<div class="p-2">
+    <div *ngFor="let task of item?.tasks" class="card card-body">
+        <div class="d-flex">
+            <div class="col d-flex justify-content-start">
+                <div>
+                    <div class="row h6" *ngIf="task.is_active"><div type="button" (click)="edit(item.itemsId,task.tasksId)">{{task.title}}</div></div>
+                    <div class="row h6" *ngIf="!task.is_active"><s>{{task.title}}</s></div>
+                </div>
+            </div>
+            <div class="col d-flex justify-content-end p-2">
+                <div class="row" *ngIf="task.is_active"><small><i class="bi bi-dot" style="color:green"></i>Aktivan</small></div>
+                <div class="row" *ngIf="!task.is_active"><small><i class="bi bi-dot" style="color:red"></i>Ne aktivan</small></div>
+            </div>
+        </div>          
+    </div>
+
+</div>

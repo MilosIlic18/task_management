@@ -1,0 +1,60 @@
+<form #f="ngForm" class="mt-5" (ngSubmit)="onSubmit(f)">
+    <div class="h4 text-center m-4">Kreirajte nalog</div>
+    <div class="text-danger small p-1 text-center">{{message}}</div>
+    <div class="form-floating form-floating-sm mt-1">
+        <input class="form-control form-control-sm" name="firstname" #firstname="ngModel" ngModel placeholder="firstname" required>
+        <label for="">Ime</label>
+        <div class="text-danger small" *ngIf="firstname.touched && firstname.invalid">
+            <div *ngIf="firstname.errors?.['required']">Polje Ime mora biti popunjeno</div>
+        </div>
+    </div>
+    <div class="form-floating form-floating-sm mt-1">
+        <input class="form-control form-control-sm" name="lastname" #lastname="ngModel" ngModel placeholder="lastname" required>
+        <label for="">Prezime</label>
+        <div class="text-danger small" *ngIf="lastname.touched && lastname.invalid">
+            <div *ngIf="lastname.errors?.['required']">Polje prezime mora biti popunjeno</div>
+        </div>
+    </div>
+    <div class="form-floating form-floating-sm mt-1">
+        <input class="form-control form-control-sm" name="username" #username="ngModel" ngModel placeholder="username" required pattern=".{4,}">
+        <label for="">Korisnicko ime</label>
+        <div class="text-danger small" *ngIf="username.touched && username.invalid">
+            <div *ngIf="username.errors?.['required']">Polje korisnicko ime mora biti popunjeno</div>
+            <div *ngIf="username.errors?.['pattern']">Polje korisnicko ime nesme biti krace od cetiri karaktera</div>
+        </div>
+    </div>
+    <div class="mt-1">
+        <div class="input-group">
+            <div class="form-floating">
+                <input class="form-control form-control-sm" [type]="changetype?'password':'text'" name="password" #password="ngModel" ngModel placeholder="password" required pattern=".{4,}">
+                <label for="">Lozinka</label>
+            </div>
+
+            <button type="button" class="btn btn-sm btn-primary" (click)="psw()"><i [ngClass]="visible? 'bi bi-eye-slash' : 'bi bi-eye'" > </i></button>
+    
+        </div>
+       <div class="text-danger small" *ngIf="password.touched && password.invalid">
+            <div *ngIf="password.errors?.['required']">Polje lozinka mora biti popunjeno</div>
+            <div *ngIf="password.errors?.['pattern']">Polje lozinka nesme biti krace od cetiri karaktera</div>
+        </div>
+    </div>
+    <div class="mt-1">
+        <div class="input-group">
+            <div class="form-floating">
+                <input class="form-control form-control-sm" [type]="changetype1?'password':'text'" name="repassword" #repassword="ngModel" ngModel placeholder="repassword" required pattern=".{4,}">
+                <label for="">Ponovi Lozinku</label>
+            </div>
+
+            <button type="button" class="btn btn-sm btn-primary" (click)="psw1()"><i [ngClass]="visible1? 'bi bi-eye-slash' : 'bi bi-eye'" > </i></button>
+    
+        </div>
+       <div class="text-danger small" *ngIf="repassword.touched && repassword.invalid">
+            <div *ngIf="repassword.errors?.['required']">Polje lozinka mora biti popunjeno</div>
+            <div *ngIf="repassword.errors?.['pattern']">Polje lozinka nesme biti krace od cetiri karaktera</div>
+        </div>
+    </div>
+    <div class="mt-1">
+        <input type="submit" value="Prijavi se" class="btn btn-sm btn-primary" [disabled]="f.invalid">
+        <a class="link-offset-2 link-underline link-underline-opacity-0 small d-block mt-1" routerLink="">Imate nalog</a>
+    </div>
+</form>

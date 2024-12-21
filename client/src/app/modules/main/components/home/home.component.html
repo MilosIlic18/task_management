@@ -1,0 +1,22 @@
+<div class="p-2">
+    <div *ngFor="let item of itemsD" >
+        <div *ngFor="let task of item.activeTasks" class="d-flex">
+            <div class="card card-body mb-1">
+            <div class="col d-flex justify-content-start">
+                <div>
+                    <div class="row h6"><div>{{task.title}}</div></div>
+                    <div class="row small"><div>{{item.itemTitle}}</div></div>
+                </div>
+            </div>
+            <div class="col d-flex justify-content-end">
+                <div class="row"><small><i class="bi bi-dot" style="color:green"></i>Aktivan</small></div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

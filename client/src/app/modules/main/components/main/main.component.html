@@ -1,0 +1,25 @@
+<div class="container mt-4 d-flex flex-rows p-0">
+    <div class="w-25 h-auto align-self-start mt-2">
+        <div class="border-bottom d-flex justify-content-end p-2">
+            <div class="btn btn-sm btn-primary" routerLink="add-item">Dodaj stavku</div>
+        </div>
+        
+        <div class="p-3">
+            <div class="row mb-1" *ngFor="let item of items">
+                <div class="col w-75"><a [routerLink]="['/main/item',item.itemsId,'tasks']"  class="link-offset-2 link-underline link-underline-opacity-0">{{item.title}}</a></div>
+                <div class="col w-25 d-flex justify-content-end">
+                    <a class="btn btn-sm btn-primary" [routerLink]="['/main',item.itemsId,'add-task']"><i class="bi bi-save"></i></a>
+                    <button class="btn btn-sm btn-primary ms-1" disabled>{{item.tasks.length}}</button>
+                    <div class="btn btn-sm btn-danger ms-1" type="button" (click)="removeItem(item.itemsId)"><i class="bi bi-trash"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-75 ms-2 p-2">
+        <div class="border-bottom d-flex justify-content-end p-2">
+            <div class="btn btn-sm btn-primary me-3" routerLink="/">Pocetna</div>
+            <div class="btn btn-sm btn-primary" type="button" (click)="logOut()">Odjava</div>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

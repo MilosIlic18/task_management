@@ -1,0 +1,48 @@
+
+############################ INSTRUKCIJE ############################
+
+
+POTREBNO JE IMATI ODGOVARAJUCU PODRSKU NA RACUNARU NA KOME PODIZETE OVAJ SISTEM
+
+MORATE IMATI INSTALIRANU PODRSKU ZA NodeJS, Angular, NestJS
+
+
+############## SERVERSKI DEO ##############
+
+
+POTREBNO JE DODATI .env datoteku sa navedenim instrukcijama:
+
+DB_HOST     = ''
+DB_PORT     = 
+DB_USER     = ''
+DB_PASS     = ''
+DB_DATABASE = ''
+HASH_NUM    = 10
+
+
+#######################################################
+
+
+POTREBNO JE KREIRATI BAZU PODATAKA NA SERVERU BAZE PODATAKA I VODITI RACUNA DA SE IME BAZE POKLAPA SA DB_DATABASE U PROTIVNOM CE DOCI DO GRESKE
+
+potom je potrebno u projektu uraditi sledece:
+
+komandom cd doci do projekta [ npr. cd Desktop/task_management_app/server ]
+
+potom instalirati zavisnosti
+komandom npm i
+
+potom  komandom npm run start pokrenuti projekat
+
+
+############## KLIJENTSKI DEO ##############
+
+
+komandom cd doci do projekta [ npr. Desktop/task_management_app/client ]
+
+komanda za instalaciju zavisnosti - npm i
+
+komanda za pokretanje aplikacija - ng s
+
+
+OSLUSKIVATI APLIKACIJU NA SLEDECOJ ADRESI http://localhost:4200/
